@@ -4,10 +4,7 @@ import {
   GET_SMURFS_FAILED,
   ADD_SMURF,
   ADD_SMURF_SUCCESS,
-  ADD_SMURF_FAILED,
-  DELETE_SMURF,
-  DELETE_SMURF_SUCCESS,
-  DELETE_SMURF_FAILED
+  ADD_SMURF_FAILED
 } from "../actions";
 
 export const initialState = {

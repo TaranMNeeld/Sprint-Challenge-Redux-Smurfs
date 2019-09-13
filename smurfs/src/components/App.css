@@ -35,6 +35,7 @@
 .smurf-form {
   display: flex;
   flex-direction: column;
+  background: lightblue;
 }
 
 .smurf-field {
