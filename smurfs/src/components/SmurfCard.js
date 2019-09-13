@@ -18,7 +18,7 @@ const SmurfCard = (({ getSmurfs, smurfs }) => {
                 return (
                 <Card key={smurf.id} className='smurf-card'>
                     <Card.Description>{smurf.name}</Card.Description>
-                    <Card.Description>{smurf.age} years</Card.Description>
+                    <Card.Description>{smurf.age} years old</Card.Description>
                     <Card.Description>{smurf.height}cm</Card.Description>
                 </Card>
                 )

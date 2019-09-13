@@ -4,7 +4,10 @@ import {
   GET_SMURFS_FAILED,
   ADD_SMURF,
   ADD_SMURF_SUCCESS,
-  ADD_SMURF_FAILED
+  ADD_SMURF_FAILED,
+  DELETE_SMURF,
+  DELETE_SMURF_SUCCESS,
+  DELETE_SMURF_FAILED
 } from "../actions";
 
 export const initialState = {
@@ -15,6 +18,7 @@ export const initialState = {
 }
 
 export const rootReducer = (state = initialState, action) => {
+  
   switch (action.type) {
     case GET_SMURFS:
       return {
