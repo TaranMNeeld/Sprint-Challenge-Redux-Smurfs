@@ -26,3 +26,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.smurf-div {
+  width: 300px;
+  margin: 30px auto 30px auto;
+}
+
+.smurf-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.smurf-field {
+  margin: 5px;
+}

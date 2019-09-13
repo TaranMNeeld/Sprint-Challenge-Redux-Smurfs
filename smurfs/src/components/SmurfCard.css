@@ -1,0 +1,13 @@
+.smurf-list {
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.smurf-card {
+    width: 200px;
+    height: 200px;
+    margin: 10px !important;
+}

@@ -1,59 +1,52 @@
-import React, {useState, useReducer} from "react";
-import { rootReducer, initialState } from "../reducers";
+import React, { useState } from "react";
+import { addSmurf } from '../actions';
+import { connect } from 'react-redux';
+import './App.css';
 
-const SmurfForm = () => {
+const SmurfForm = ({ addSmurf }) => {
 
-    const [state, dispatch] = useReducer(rootReducer, initialState);
-
-
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [height, setHeight] = useState("");
+    const [smurf, setSmurf] = useState({ name: '', height: '', age: '', id: Date.now() });
 
     const submitSmurf = e => {
         e.preventDefault();
-        dispatch({
-            type: "ADD_TODO",
-            payload: {
-                name: name,
-                age: age,
-                height: height,
-                id: Date.now()
-            }
-        });
-        setName("");
-        setAge("");
-        setHeight("");
+        addSmurf(smurf);
+        setSmurf({ name: '', height: '', age: '', id: '' });
     };
 
     return (
-        <div>
-            <form>
+        <div className='smurf-div'>
+            <form className='smurf-form'>
                 <input
-                    type="text"
-                    name="name"
-                    placeholder="Smurf name"
-                    value={name}
-                    onChange={({ target }) => setName(target.value)}
+                    className='smurf-field'
+                    type='text'
+                    name='name'
+                    placeholder='Smurf name'
+                    value={smurf.name}
+                    onChange={({ target }) => setSmurf({ ...smurf, [target.name]: target.value })}
                 />
                 <input
-                    type="text"
-                    name="age"
-                    placeholder="Smurf age"
-                    value={age}
-                    onChange={({ target }) => setAge(target.value)}
+                    className='smurf-field'
+                    type='text'
+                    name='age'
+                    placeholder='Smurf age'
+                    value={smurf.age}
+                    onChange={({ target }) => setSmurf({ ...smurf, [target.name]: target.value })}
                 />
                 <input
-                    type="text"
-                    name="height"
-                    placeholder="Smurf height (cm)"
-                    value={height}
-                    onChange={({ target }) => setHeight(target.value)}
+                    className='smurf-field'
+                    type='text'
+                    name='height'
+                    placeholder='Smurf height (cm)'
+                    value={smurf.height}
+                    onChange={({ target }) => setSmurf({ ...smurf, [target.name]: target.value })}
                 />
-                <button type="submit" onClick={submitSmurf}>Add Smurf</button>
+                <button className='smurf-field' type='submit' onClick={submitSmurf}>Add Smurf</button>
             </form>
         </div>
     );
 };
 
-export default SmurfForm;
+export default connect(
+    null,
+    { addSmurf }
+)(SmurfForm);

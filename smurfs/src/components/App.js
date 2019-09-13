@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import {connect} from 'react-redux';
-import {getSmurfs} from '../actions';
+
 import SmurfCard from './SmurfCard';
 import SmurfForm from './SmurfForm';
 /*
@@ -10,29 +9,13 @@ import SmurfForm from './SmurfForm';
  Just remember, `how do I `connect` my components to redux?`
  `How do I ensure that my component links the state to props?`
  */
-const App = ({getSmurfs, smurfs}) => {
-
-  useEffect(() => {
-    getSmurfs();
-  }, [getSmurfs])
-  
+const App = () => {
     return (
       <div className="App">
         <SmurfForm/>
-        {smurfs.map(smurf => {
-          return <SmurfCard key={smurf.id++} smurf={smurf}/>
-        })}
+        <SmurfCard/>
       </div>
     );
 }
 
-const mapStateToProps = state => {
-  return {
-    smurfs: state.smurfs
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  {getSmurfs}
-)(App);
+export default App;
