@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_SMURFS = "GET_SMURFS";
+export const GET_SMURFS_SUCCESS = "GET_SMURFS_SUCCESS";
 export const GET_SMURFS_FAILED = "GET_SMURFS_FAILED";
 export const ADD_SMURF = "ADD_SMURF";
 
@@ -9,7 +10,7 @@ export const getSmurfs = () => dispatch => {
     axios
         .get(`http://localhost:3333/smurfs`)
         .then(res => {
-            dispatch({ type: GET_SMURFS, payload: res.data });
+            dispatch({ type: GET_SMURFS_SUCCESS, payload: res.data });
         })
         .catch(err => {
             dispatch({ type: GET_SMURFS_FAILED, payload: err });

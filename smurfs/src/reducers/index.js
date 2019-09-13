@@ -1,10 +1,11 @@
 import {
   GET_SMURFS,
-  ADD_SMURF,
-  GET_SMURFS_FAILED
+  GET_SMURFS_SUCCESS,
+  GET_SMURFS_FAILED,
+  ADD_SMURF
 } from "../actions";
 
-const initialState = {
+export const initialState = {
   smurfs: [],
   gettingSmurfs: false,
   addingSmurf: false,
@@ -16,8 +17,13 @@ export const rootReducer = (state = initialState, action) => {
     case GET_SMURFS:
       return {
         ...state,
+        gettingSmurfs: true
+      }
+      case GET_SMURFS_SUCCESS:
+      return {
+        ...state,
         smurfs: [...state.smurfs, action.payload],
-        gettingSmurfs: true,
+        gettingSmurfs: false,
         error: ''
       }
     case GET_SMURFS_FAILED:
@@ -28,7 +34,7 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
-        gettingSmurfs: false,
+        gettingSmurfs: true,
         error: ''
       }
     default:
